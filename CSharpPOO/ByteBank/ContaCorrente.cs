@@ -8,7 +8,7 @@ namespace ByteBank
 {
     public class ContaCorrente
     {
-        public string Titular { get; set; }
+        public Cliente Titular { get; set; }
         public int Agencia { get; set; }
         public int Conta { get; set; }
         public double Saldo { get; set; }
