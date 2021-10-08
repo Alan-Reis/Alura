@@ -12,6 +12,8 @@ namespace ByteBank
         public int Agencia { get; set; }
         public int Conta { get; set; }
 
+        public static int TotalConta { get; private set; }
+
         private double _saldo = 100;    
         public double Saldo 
         {
@@ -30,6 +32,18 @@ namespace ByteBank
             }
         }
 
+        public ContaCorrente(int agencia, int conta)
+        {
+            Agencia = agencia;
+            Conta = conta;
+
+            TotalConta++;
+        }
+
+        public static int GetTotalConta()
+        {
+            return TotalConta;
+        }
         public bool Sacar(double valor)
         {
             if(this._saldo < valor)

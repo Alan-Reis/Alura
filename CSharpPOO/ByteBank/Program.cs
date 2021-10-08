@@ -17,15 +17,17 @@ namespace ByteBank
             Console.Write("Digite a profissão do titular: ");
             cliente.Profissao = Console.ReadLine();
 
-            ContaCorrente conta = new ContaCorrente();
+            Console.Write("Digite a agência: ");
+            int ag = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Ditege a conta: ");
+            int cc = Convert.ToInt32(Console.ReadLine());
+
+            ContaCorrente conta = new ContaCorrente(ag, cc);
 
             conta.Titular = cliente;
 
-            Console.Write("Digite a agência: ");
-            conta.Agencia = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("Ditege a conta: ");
-            conta.Conta = Convert.ToInt32(Console.ReadLine());
+            
 
             conta.Saldo = 100.00; //Convert.ToDouble(Console.ReadLine());
 
@@ -47,12 +49,15 @@ namespace ByteBank
             Console.WriteLine("Novo saldo: " + conta.Saldo);
 
             //Criar conta somente para realizar o metodo transferir
-            ContaCorrente c2 = new ContaCorrente();
+            ContaCorrente c2 = new ContaCorrente(ag, cc);
             
             Console.Write("Digite o valor da tranferência: ");
             conta.Transferir(Convert.ToDouble(Console.ReadLine()), c2);
 
             Console.WriteLine("Novo saldo: " + conta.Saldo);
+
+            Console.Write("Total de clientes: ");
+            Console.WriteLine(ContaCorrente.GetTotalConta());
             Console.ReadLine();
 
         }
