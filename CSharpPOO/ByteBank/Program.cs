@@ -6,20 +6,20 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
-            ContaCorrente conta = new ContaCorrente();
-            Cliente cliente = new Cliente();
+            
 
+            Cliente cliente = new Cliente();
+           
             Console.Write("Digite o nome do titular: ");
             cliente.Nome = Console.ReadLine();
-
             Console.Write("Digite o CPF do titular: ");
             cliente.CPF = Console.ReadLine();
-
-            Console.Write("Digite o CPF do titular: ");
-            conta.Titular = cliente;
-
             Console.Write("Digite a profissão do titular: ");
             cliente.Profissao = Console.ReadLine();
+
+            ContaCorrente conta = new ContaCorrente();
+
+            conta.Titular = cliente;
 
             Console.Write("Digite a agência: ");
             conta.Agencia = Convert.ToInt32(Console.ReadLine());
@@ -29,9 +29,9 @@ namespace ByteBank
 
             conta.Saldo = 100.00; //Convert.ToDouble(Console.ReadLine());
 
-            Console.WriteLine(cliente.Nome);
-            Console.WriteLine(cliente.CPF);
-            Console.WriteLine(conta.Titular);
+            Console.WriteLine(conta.Titular.Nome);
+            Console.WriteLine(conta.Titular.CPF);
+            Console.WriteLine(conta.Titular.Profissao);
             Console.WriteLine(conta.Agencia);
             Console.WriteLine(conta.Conta);
             Console.WriteLine(conta.Saldo);
