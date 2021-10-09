@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ByteBank.Fucionario;
+using System;
 
 namespace ByteBank
 {
@@ -6,8 +7,9 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
-            
+            Funcionarios();
 
+            /*
             Cliente cliente = new Cliente();
            
             Console.Write("Digite o nome do titular: ");
@@ -59,7 +61,30 @@ namespace ByteBank
             Console.Write("Total de clientes: ");
             Console.WriteLine(ContaCorrente.GetTotalConta());
             Console.ReadLine();
+            */
 
+        }
+
+        public static void Funcionarios()
+        {
+            Funcionario funcionario = new Funcionario();
+
+
+            Console.Write("Digite o nome do funcionário: ");
+            funcionario.Nome = Console.ReadLine();
+
+            Console.Write("Digite o CPF: ");
+            funcionario.CPF = Console.ReadLine();
+
+            Console.Write("Digite o salário: ");
+            funcionario.Salario = Convert.ToDouble(Console.ReadLine());
+
+            GerenciadorBonificacao bonus = new GerenciadorBonificacao();
+
+            bonus.Registrar(funcionario);
+
+            Console.Write("Bonificação do funcionário é de: " + bonus.GetTotalBonificacao());
+            Console.ReadLine();
         }
     }
 }
