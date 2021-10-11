@@ -7,11 +7,35 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
-            Funcionarios();
+         
 
-            /*
+        }
+
+        public static void Funcionarios()
+        {
+            Funcionario funcionario = new Funcionario();
+
+            Console.Write("Digite o nome do funcionário: ");
+            funcionario.Nome = Console.ReadLine();
+
+            Console.Write("Digite o CPF: ");
+            funcionario.CPF = Console.ReadLine();
+
+            Console.Write("Digite o salário: ");
+            funcionario.Salario = Convert.ToDouble(Console.ReadLine());
+
+            GerenciadorBonificacao bonus = new GerenciadorBonificacao();
+
+            bonus.Registrar(funcionario);
+
+            Console.Write("Bonificação do funcionário é de: " + bonus.GetTotalBonificacao());
+            Console.ReadLine();
+        }
+
+        public static void Cliente()
+        {
             Cliente cliente = new Cliente();
-           
+
             Console.Write("Digite o nome do titular: ");
             cliente.Nome = Console.ReadLine();
             Console.Write("Digite o CPF do titular: ");
@@ -29,7 +53,7 @@ namespace ByteBank
 
             conta.Titular = cliente;
 
-            
+
 
             conta.Saldo = 100.00; //Convert.ToDouble(Console.ReadLine());
 
@@ -42,7 +66,7 @@ namespace ByteBank
 
             Console.Write("Digite o valor do saque: ");
             conta.Sacar(Convert.ToDouble(Console.ReadLine()));
-            
+
             Console.WriteLine("Novo saldo: " + conta.Saldo);
 
             Console.Write("Digite o valor do depósito: ");
@@ -52,7 +76,7 @@ namespace ByteBank
 
             //Criar conta somente para realizar o metodo transferir
             ContaCorrente c2 = new ContaCorrente(ag, cc);
-            
+
             Console.Write("Digite o valor da tranferência: ");
             conta.Transferir(Convert.ToDouble(Console.ReadLine()), c2);
 
@@ -61,30 +85,7 @@ namespace ByteBank
             Console.Write("Total de clientes: ");
             Console.WriteLine(ContaCorrente.GetTotalConta());
             Console.ReadLine();
-            */
 
-        }
-
-        public static void Funcionarios()
-        {
-            Funcionario funcionario = new Funcionario();
-
-
-            Console.Write("Digite o nome do funcionário: ");
-            funcionario.Nome = Console.ReadLine();
-
-            Console.Write("Digite o CPF: ");
-            funcionario.CPF = Console.ReadLine();
-
-            Console.Write("Digite o salário: ");
-            funcionario.Salario = Convert.ToDouble(Console.ReadLine());
-
-            GerenciadorBonificacao bonus = new GerenciadorBonificacao();
-
-            bonus.Registrar(funcionario);
-
-            Console.Write("Bonificação do funcionário é de: " + bonus.GetTotalBonificacao());
-            Console.ReadLine();
         }
     }
 }
