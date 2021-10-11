@@ -7,19 +7,41 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
-         
-
+            CalcularBonificacao();
         }
+        public static void CalcularBonificacao()
+        {
+            GerenciadorBonificacao gerenciadorBonificacao = new GerenciadorBonificacao();
 
+            Designer designer = new Designer("111.111.111.11");
+            designer.Nome = "Alan";
+
+            Diretor diretor = new Diretor("222.222.222.22");
+            diretor.Nome = "Gerson";
+
+            Auxiliar auxiliar = new Auxiliar("333.333.333.22");
+            auxiliar.Nome = "Paulo";
+
+            Gerente gerente = new Gerente("444.444.444.44");
+            gerente.Nome = "Deise";
+
+            gerenciadorBonificacao.Registrar(designer);
+            gerenciadorBonificacao.Registrar(diretor);
+            gerenciadorBonificacao.Registrar(auxiliar);
+            gerenciadorBonificacao.Registrar(gerente);
+
+            Console.WriteLine("Total de bonificação do mês: " + gerenciadorBonificacao.GetTotalBonificacao());
+        }
         public static void Funcionarios()
         {
+            /*
             Funcionario funcionario = new Funcionario();
 
             Console.Write("Digite o nome do funcionário: ");
             funcionario.Nome = Console.ReadLine();
 
             Console.Write("Digite o CPF: ");
-            funcionario.CPF = Console.ReadLine();
+            //funcionario.CPF = Console.ReadLine();
 
             Console.Write("Digite o salário: ");
             funcionario.Salario = Convert.ToDouble(Console.ReadLine());
@@ -30,8 +52,9 @@ namespace ByteBank
 
             Console.Write("Bonificação do funcionário é de: " + bonus.GetTotalBonificacao());
             Console.ReadLine();
+            */
         }
-
+       
         public static void Cliente()
         {
             Cliente cliente = new Cliente();
@@ -87,5 +110,7 @@ namespace ByteBank
             Console.ReadLine();
 
         }
+               
+       
     }
 }
