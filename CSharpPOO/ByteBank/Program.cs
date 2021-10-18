@@ -1,4 +1,5 @@
 ﻿using ByteBank.Fucionario;
+using ByteBank.Sistemas;
 using System;
 
 namespace ByteBank
@@ -7,7 +8,21 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
+            UsarSitema();
             CalcularBonificacao();
+
+            
+        }
+
+        public static void UsarSitema()
+        {
+            SistemaInterno sistema = new SistemaInterno();
+
+            Diretor roberta = new Diretor("111.111.111.11");
+            roberta.Nome = "Roberta";
+            roberta.Senha = "123";
+
+            sistema.Logar(roberta, "123");
         }
         public static void CalcularBonificacao()
         {
